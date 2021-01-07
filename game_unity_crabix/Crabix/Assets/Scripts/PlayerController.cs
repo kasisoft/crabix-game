@@ -6,8 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float rotationSpeed;
+    
+    
     private Vector3 movementVector;
-
     private Rigidbody rBody;
     private Animator anim;
 
@@ -15,15 +16,15 @@ public class PlayerController : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-
+        
     }
 
     private void Update()
     {
         float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float j = Input.GetAxisRaw("Jump");
 
-        movementVector = new Vector3(h, 0, v);
+        movementVector = new Vector3(h, j, 0);
 
         if (movementVector != Vector3.zero)
         {
